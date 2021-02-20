@@ -1,0 +1,19 @@
+body {
+    margin:0;
+    padding:0;
+    background:blue;
+}
+
+table{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+}
+td {
+    border: 5px solid black;
+    height: 100px;
+    width: 100px;
+    background: white;
+}
+
+
