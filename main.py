@@ -4,6 +4,12 @@ from flask import render_template
 
 app = Flask(__name__)
 
+
+@app.route('/play')
+def play():
+    return render_template('play.html')
+
+
 @app.route('/')
 def index():
     # return 'Cześć, tu Python!'
