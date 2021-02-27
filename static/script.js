@@ -6,8 +6,13 @@
 
 
 show_the_board();
-var zmienna = document.getElementById("arr0");
-zmienna.addEventListener('click', rysuj, false);
+var tablica = document.getElementsByClassName("field");
+
+for(let i=0; i<9; i++){
+    tablica[i].addEventListener('click', rysuj, false);
+}
+//var zmienna = document.getElementById("arr0");
+//zmienna.addEventListener('click', rysuj, false);
 
 
 function rysuj() {

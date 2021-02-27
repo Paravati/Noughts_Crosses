@@ -4,6 +4,12 @@ body {
     background:blue;
 }
 
+h1{
+    font-size: 45px;
+    font-family: Monotype corsiva;
+
+}
+
 table{
     position: absolute;
     top: 20%;
@@ -14,6 +20,30 @@ td {
     height: 100px;
     width: 100px;
     background: white;
+}
+#clickon{
+height: 50px;
+width: 200px;
+border: 5px solid black;
+text-size: 20px;
+position: absolute;
+left: 40%;
+top: 80%;
+}
+
+#fname{
+font-size: 15px;
+position:absolute;
+left: 40%;
+top: 50%;
+
+}
+
+#labelForFname{
+font-size: 15px;
+position:absolute;
+left: 40%;
+top: 45%;
 }
 
 
