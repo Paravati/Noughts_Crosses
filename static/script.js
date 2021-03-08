@@ -17,7 +17,8 @@ playerMove();
 function playerMove(){
    for(let i=0; i<tablica.length; i++){
         tablica[i].addEventListener('click', reply_click, false);
-        document.getElementById(tablica[i].id).onclick = reply_click;
+        document.getElementById(tablica[i].id).innerHTML = 'X';
+//        document.getElementById(tablica[i].id).onclick = reply_click;
         console.log(tablica[i]);
     }
 }
