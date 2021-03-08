@@ -2,6 +2,7 @@
   <head>
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="#" />   <!--blad favicon.ico-->
   </head>
 <body>
   <h1>Noughts & Crosses</h1>
@@ -9,7 +10,8 @@
   <form>
     <label id="labelForFname" for="fname">Insert your name:</label><br>
     <input type="text" id="fname" name="fname" value="1-10chars"><br>
-</form>
+  </form>
+
   <button id="clickon"><a href="{{url_for('play')}}">Play the game</a></button>
 </body>
 </html>

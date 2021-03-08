@@ -6,11 +6,51 @@
 
 
 show_the_board();
-var tablica = document.getElementsByClassName("field");
 
-for(let i=0; i<9; i++){
-    tablica[i].addEventListener('click', rysuj, false);
+var tablica = document.getElementsByClassName("field");
+console.log(tablica);
+console.log(tablica[0]);
+console.log(tablica[0].id)
+
+playerMove();
+
+function playerMove(){
+   for(let i=0; i<tablica.length; i++){
+        tablica[i].addEventListener('click', reply_click, false);
+        document.getElementById(tablica[i].id).onclick = reply_click;
+        console.log(tablica[i]);
+    }
 }
+
+function reply_click()
+{
+    console.log("Button clicked, id "+this.id);
+}
+//document.getElementById('arr0').onclick = reply_click;
+//document.getElementById('arr1').onclick = reply_click;
+//document.getElementById('arr2').onclick = reply_click;
+
+//function player() {
+//   for (let i = 0; i < blocks.length; i++) {
+//     blocks[i].addEventListener(‘click’, rysuj {
+//         this.getElementsByTagName(‘field’)[0].classList.add(‘clicked’);
+//     })
+//   }
+//};
+
+
+
+//document.getElementById("field").addEventListener("click", function() {
+//  var tablica = document.getElementsByClassName("field");
+//    for(let i=0; i<9; i++){
+//        tablica[i].addEventListener('click', rysuj, false);
+//}
+////  myFunction(p1, p2);
+//});
+
+//for(let i=0; i<9; i++){
+//    tablica[i].addEventListener('click', rysuj, false);
+//}
 //var zmienna = document.getElementById("arr0");
 //zmienna.addEventListener('click', rysuj, false);
 
