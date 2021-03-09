@@ -39,8 +39,22 @@ top: 50%;
 
 }
 
+fname[type=text]:focus { /* gdy najezdza sie na pole z nickiem to sie zmienia obramowanie */
+    -webkit-box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.75);
+}
+
+.player_dot {
+    height: 25px;
+    width: 25px;
+    background-color: #133553;
+    border-radius: 50%;
+}
+
+
 #labelForFname{
-font-size: 15px;
+font-size: 20px solid;
 position:absolute;
 left: 40%;
 top: 45%;
