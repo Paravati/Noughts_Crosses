@@ -1,10 +1,3 @@
-//document.addEventListener('click', () => {
-////  let start_button = document.getElementById('clickon');
-//  let player_name = document.getElementById('fname').value;
-//  console.log(start_button);
-//  let start_button = document.getElementById('clickon');
-//  start_button.addEventListener('click', main(player_name));
-//});
 let player_name;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,33 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
   start_button.addEventListener('click', main);
 });
 
-function read_name() {
-    player_name = document.getElementById('fname').value;
-    console.log(player_name);
-    let name_is_ok = name_ok(player_name);
-    if (name_is_ok){
-        main(player_name)
-    }else
-    document.getElementById('error_message').innerText = 'No nick or nick too long';
-}
-
-//document.addEventListener('click', () => {
-//  let start_button = document.getElementById('clickon');
-//  console.log(start_button);
-//  start_button.addEventListener('click', main);
-//});
-
 function main(){
     player_name = document.getElementById('fname').value;
     console.log(player_name);
     let name_is_ok = name_ok(player_name);
     if (name_is_ok){
         show_the_board();
+        //timer_start();
+        //start_the_game();
     }else
     document.getElementById('error_message').innerText = 'No nick or nick too long';
 
-//        //    timer_start();
-//        start_the_game();
 }
 
 function start_the_game() {
@@ -55,20 +32,7 @@ function name_ok(name){
         return false;
     }
 }
-//document.addEventListener('DOMContentLoaded', () => {
-//  let start_button = document.getElementById('start_button');
-//  start_button.addEventListener('click', main);
-//});
 
-
-//show_the_board();
-
-//var tablica = document.getElementsByClassName("field");
-//console.log(tablica);
-//console.log(tablica[0]);
-//console.log(tablica[0].id)
-
-//playerMove();
 
 function playerMove(){
    for(let i=0; i<tablica.length; i++){
