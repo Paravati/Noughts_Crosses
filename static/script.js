@@ -6,9 +6,11 @@
 //  start_button.addEventListener('click', main(player_name));
 //});
 let player_name;
-let name_is_ok = false;
-let start_button = document.getElementById('clickon');
-start_button.addEventListener('click', read_name);
+
+document.addEventListener('DOMContentLoaded', () => {
+  let start_button = document.getElementById('clickon');
+  start_button.addEventListener('click', main);
+});
 
 function read_name() {
     player_name = document.getElementById('fname').value;
@@ -20,14 +22,21 @@ function read_name() {
     document.getElementById('error_message').innerText = 'No nick or nick too long';
 }
 
-document.addEventListener('click', () => {
-  let start_button = document.getElementById('clickon');
-  console.log(start_button);
-  start_button.addEventListener('click', main);
-});
+//document.addEventListener('click', () => {
+//  let start_button = document.getElementById('clickon');
+//  console.log(start_button);
+//  start_button.addEventListener('click', main);
+//});
 
 function main(){
-    show_the_board();
+    player_name = document.getElementById('fname').value;
+    console.log(player_name);
+    let name_is_ok = name_ok(player_name);
+    if (name_is_ok){
+        show_the_board();
+    }else
+    document.getElementById('error_message').innerText = 'No nick or nick too long';
+
 //        //    timer_start();
 //        start_the_game();
 }
@@ -106,7 +115,7 @@ function show_the_board() {
     `;
 
     document.querySelector('.container').innerHTML = board_string;
-//    let nick_to_display = document.getElementById('nick_to_display');
-//    nick_to_display.innerHTML = `<span style="color: red;">${player_name}</span> is playing`;
+    let nick_to_display = document.getElementById('name_to_display');
+    nick_to_display.innerHTML = `<span style="color: red;">${player_name}</span> is playing`;
 //    document.getElementById('container').innerHTML = board_string;   -> ten zapis uzywamy gdy zamiast klasy w html mamy id
 }
