@@ -12,7 +12,6 @@ def play():
 
 @app.route('/')
 def index():
-    # return 'Cześć, tu Python!'
     return render_template('index.html')
 
 

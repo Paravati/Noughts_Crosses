@@ -7,7 +7,14 @@ body {
 h1{
     font-size: 45px;
     font-family: Monotype corsiva;
+    padding: 15, 15, 15, 15;
+}
 
+h2{
+font-size: 20px;
+position:auto;
+font-family: Arial;
+margin: 15px;
 }
 
 table{
