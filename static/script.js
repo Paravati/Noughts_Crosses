@@ -1,4 +1,14 @@
 let player_name;
+fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+//var isMouseDown = false;
+//
+//document.addEventListener('mousedown', function(event) {
+//    if ( event.which ) isMouseDown = true;
+//}, true);
+//
+//document.addEventListener('mouseup', function(event) {
+//    if ( event.which ) isMouseDown = false;
+//}, true);
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
@@ -11,8 +21,9 @@ function main(){
     let name_is_ok = name_ok(player_name);
     if (name_is_ok){
         show_the_board();
+//        playerMove();
         //timer_start();
-        //start_the_game();
+        start_the_game();
     }else
     document.getElementById('error_message').innerText = 'No nick or nick too long';
 
@@ -21,8 +32,9 @@ function main(){
 function start_the_game() {
     let cells = document.querySelectorAll('td');
 
-//    for (let card_index = 0; card_index < cards.length; card_index++)
-//    cells[card_index].addEventListener('click', () => player_puts_dot(card_index));
+    for (let field_index = 0; field_index < fields.length; field_index++)
+    cells[field_index].addEventListener('click', () => console.log(field_index));
+//    cells[field_index].addEventListener('click', () => player_puts_dot(field_index));
 }
 
 function name_ok(name){
