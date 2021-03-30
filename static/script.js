@@ -33,8 +33,8 @@ function start_the_game() {
     let cells = document.querySelectorAll('td');
 
     for (let field_index = 0; field_index < fields.length; field_index++)
-    cells[field_index].addEventListener('click', () => console.log(field_index));
-//    cells[field_index].addEventListener('click', () => player_puts_dot(field_index));
+//    cells[field_index].addEventListener('click', () => console.log(field_index));
+    cells[field_index].addEventListener('click', () => {document.getElementById(cells[field_index].id).innerHTML = 'X'});
 }
 
 function name_ok(name){
@@ -45,6 +45,9 @@ function name_ok(name){
     }
 }
 
+function draw_figure(element) {
+    document.getElementById(element).innerHTML = 'X';
+}
 
 function playerMove(){
    for(let i=0; i<tablica.length; i++){
@@ -60,9 +63,7 @@ function reply_click()
     console.log("Button clicked, id "+this.id);
 }
 
-function rysuj() {
-    console.log("Wybrano argument arr0")
-}
+
 
 function displayDate() {
   document.getElementById("demo").innerHTML = Date();
