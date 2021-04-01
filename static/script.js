@@ -2,15 +2,6 @@ let player_name;
 fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 isPlayerMove = true
 listWithFields = []
-//var isMouseDown = false;
-//
-//document.addEventListener('mousedown', function(event) {
-//    if ( event.which ) isMouseDown = true;
-//}, true);
-//
-//document.addEventListener('mouseup', function(event) {
-//    if ( event.which ) isMouseDown = false;
-//}, true);
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
@@ -40,8 +31,6 @@ function start_the_game() {
         listWithFields.push(cells[field_index].id)
         cells[field_index].addEventListener('click', () => {playerMove(cells[field_index].id, listWithFields)});
     }
-
-
 }
 
 function name_ok(name){
@@ -52,23 +41,26 @@ function name_ok(name){
     }
 }
 
-function draw_figure(element) {
-    document.getElementById(element).innerHTML = 'X';
-    console.log("Wykonano ruch")
-    isPlayerMove = false
-}
-
 function playerMove(el, all_fields){
     document.getElementById(el).innerHTML = 'X';
     console.log("Wykonano ruch")
-    computerMove(all_fields);
+    removeFieldFromPossibleFields(el);
+    computerMove();
 }
 
-function computerMove(array){
-    var compField = array[Math.floor(Math.random() * array.length)];
+function computerMove(){
+    var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
     document.getElementById(compField).innerHTML = 'O';
-    console.log("computer move");
+    removeFieldFromPossibleFields(compField);
+    console.log("computer move" + listWithFields);
     start_the_game();
+}
+
+function removeFieldFromPossibleFields(field_number){
+    let index = listWithFields.indexOf(field_number);
+    console.log(field_number + " " + index);
+    if (index > -1)
+        listWithFields.splice(index, 1);
 }
 
 function reply_click()
