@@ -1,7 +1,7 @@
 let player_name;
 fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 isPlayerMove = true
-listWithFields = []
+listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
@@ -28,7 +28,7 @@ function start_the_game() {
     for (let field_index = 0; field_index < fields.length; field_index++)
 //    cells[field_index].addEventListener('click', () => console.log(field_index));
     if (isPlayerMove){
-        listWithFields.push(cells[field_index].id)
+//        listWithFields.push(cells[field_index].id)
         cells[field_index].addEventListener('click', () => {playerMove(cells[field_index].id, listWithFields)});
     }
 }
@@ -42,9 +42,16 @@ function name_ok(name){
 }
 
 function playerMove(el, all_fields){
-    document.getElementById(el).innerHTML = 'X';
-    console.log("Wykonano ruch")
-    removeFieldFromPossibleFields(el);
+    if (el != null){
+        document.getElementById(el).innerHTML = 'X';
+        console.log("Wykonano ruch")
+        removeFieldFromPossibleFields(el);
+    }else{
+        let clicked_card = document.getElementById(`card${card_index}`);
+        console.log("Wykonano ruch")
+        removeFieldFromPossibleFields(clicked_card);
+    }
+
     computerMove();
 }
 
