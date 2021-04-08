@@ -14,8 +14,6 @@ function main(){
     let name_is_ok = name_ok(player_name);
     if (name_is_ok){
         show_the_board();
-//        playerMove();
-        //timer_start();
         start_the_game();
     }else
     document.getElementById('error_message').innerText = 'No nick or nick too long';
@@ -26,11 +24,7 @@ function start_the_game() {
     let cells = document.querySelectorAll('td');
 
     for (let field_index = 0; field_index < fields.length; field_index++)
-//    cells[field_index].addEventListener('click', () => console.log(field_index));
-    if (isPlayerMove){
-//        listWithFields.push(cells[field_index].id)
-        cells[field_index].addEventListener('click', () => {playerMove(cells[field_index].id, listWithFields)});
-    }
+        cells[field_index].addEventListener('click', () => {playerMove(cells[field_index].id)});
 }
 
 function name_ok(name){
@@ -41,18 +35,14 @@ function name_ok(name){
     }
 }
 
-function playerMove(el, all_fields){
-    if (el != null){
+function playerMove(el){
+    if (isPlayerMove===true && listWithFields.includes(el)){
         document.getElementById(el).innerHTML = 'X';
         console.log("Wykonano ruch")
         removeFieldFromPossibleFields(el);
-    }else{
-        let clicked_card = document.getElementById(`card${card_index}`);
-        console.log("Wykonano ruch")
-        removeFieldFromPossibleFields(clicked_card);
+        isPlayerMove=false;
+        computerMove();
     }
-
-    computerMove();
 }
 
 function computerMove(){
@@ -60,6 +50,7 @@ function computerMove(){
     document.getElementById(compField).innerHTML = 'O';
     removeFieldFromPossibleFields(compField);
     console.log("computer move" + listWithFields);
+    isPlayerMove=true;
     start_the_game();
 }
 
