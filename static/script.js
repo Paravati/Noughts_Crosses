@@ -37,7 +37,10 @@ function name_ok(name){
 
 function playerMove(el){
     if (isPlayerMove===true && listWithFields.includes(el)){
-        document.getElementById(el).innerHTML = 'X';
+        var img = document.createElement('img');
+        img.src = "static/cross.JPG";
+        document.getElementById(el).appendChild(img)
+//        document.getElementById(el).innerHTML = 'X';
         console.log("Wykonano ruch")
         removeFieldFromPossibleFields(el);
         isPlayerMove=false;
@@ -47,7 +50,10 @@ function playerMove(el){
 
 function computerMove(){
     var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
-    document.getElementById(compField).innerHTML = 'O';
+    var img = document.createElement('img');
+    img.src = "static/dot.JPG";
+    document.getElementById(compField).appendChild(img)
+//    document.getElementById(compField).innerHTML = 'O';
     removeFieldFromPossibleFields(compField);
     console.log("computer move" + listWithFields);
     isPlayerMove=true;
