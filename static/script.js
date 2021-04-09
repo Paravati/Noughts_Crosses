@@ -39,6 +39,8 @@ function playerMove(el){
     if (isPlayerMove===true && listWithFields.includes(el)){
         var img = document.createElement('img');
         img.src = "static/cross.JPG";
+        img.width = 80;
+        img.height = 80;
         document.getElementById(el).appendChild(img)
 //        document.getElementById(el).innerHTML = 'X';
         console.log("Wykonano ruch")
@@ -52,6 +54,8 @@ function computerMove(){
     var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
     var img = document.createElement('img');
     img.src = "static/dot.JPG";
+    img.width = 80;
+    img.height = 80;
     document.getElementById(compField).appendChild(img)
 //    document.getElementById(compField).innerHTML = 'O';
     removeFieldFromPossibleFields(compField);
