@@ -90,14 +90,25 @@ function checkIfWin()
     ["arr6", "arr7", "arr8"],
     ["arr0", "arr3", "arr6"],
     ["arr1", "arr4", "arr7"],
-    ["arr2", "arr5", "arr8"]];
+    ["arr2", "arr5", "arr8"],
+    ["arr0", "arr4", "arr8"],
+    ["arr2", "arr4", "arr6"]];
+    computerMoves.sort();
+    playerMoves.sort();
 
-    
-//    if (listWithFields["arr0"]!= null){
-//        console.log("Zawiera img");
-//    }else{
-//        console.log("nie zawiera img")
-//    }
+    for(var x=0; x<winningCombinations[0].length; x++){
+        console.log("BBBBBB: " + winningCombinations[x]);
+
+        if(computerMoves.includes(winningCombinations[x][0]) &&
+         computerMoves.includes(winningCombinations[x][1]) &&
+         computerMoves.includes(winningCombinations[x][2])){
+            console.log("Computer wins");
+        }else if(playerMoves.includes(winningCombinations[x][0]) &&
+        playerMoves.includes(winningCombinations[x][1]) &&
+        playerMoves.includes(winningCombinations[x][2])){
+            console.log("Player wins");
+        }
+    }
 }
 
 
