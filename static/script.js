@@ -2,6 +2,8 @@ let player_name;
 fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
 isPlayerMove = true
 listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
+computerMoves = []  // list with all moves done by computer
+playerMoves = []  // list with all moves done by player
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
@@ -43,37 +45,59 @@ function playerMove(el){
         img.height = 80;
         document.getElementById(el).appendChild(img)
 //        document.getElementById(el).innerHTML = 'X';
-        console.log("Wykonano ruch")
-        removeFieldFromPossibleFields(el);
+//        console.log("Wykonano ruch")
+        removeFieldFromPossibleFields(el, 'User');
         isPlayerMove=false;
+        checkIfWin();
         computerMove();
     }
 }
 
 function computerMove(){
     var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
-    var img = document.createElement('img');
-    img.src = "static/dot.JPG";
-    img.width = 80;
-    img.height = 80;
-    document.getElementById(compField).appendChild(img)
+    var imgComputer = document.createElement('img');
+    imgComputer.src = "static/dot.JPG";
+    imgComputer.width = 80;
+    imgComputer.height = 80;
+    document.getElementById(compField).appendChild(imgComputer)
 //    document.getElementById(compField).innerHTML = 'O';
-    removeFieldFromPossibleFields(compField);
+    removeFieldFromPossibleFields(compField, 'Computer');
     console.log("computer move" + listWithFields);
     isPlayerMove=true;
+    checkIfWin();
     start_the_game();
 }
 
-function removeFieldFromPossibleFields(field_number){
+function removeFieldFromPossibleFields(field_number, player){
     let index = listWithFields.indexOf(field_number);
-    console.log(field_number + " " + index);
+    if (player==='Computer'){
+        computerMoves.push(field_number);
+        console.log("computer: " + computerMoves)
+    }else{
+        playerMoves.push(field_number);
+         console.log("user: " + playerMoves)
+    }
+//    console.log(field_number + " " + index);
     if (index > -1)
         listWithFields.splice(index, 1);
 }
 
-function reply_click()
+function checkIfWin()
 {
-    console.log("Button clicked, id "+this.id);
+    const winningCombinations = [
+    ["arr0", "arr1", "arr2"],
+    ["arr3", "arr4", "arr5"],
+    ["arr6", "arr7", "arr8"],
+    ["arr0", "arr3", "arr6"],
+    ["arr1", "arr4", "arr7"],
+    ["arr2", "arr5", "arr8"]];
+
+    
+//    if (listWithFields["arr0"]!= null){
+//        console.log("Zawiera img");
+//    }else{
+//        console.log("nie zawiera img")
+//    }
 }
 
 

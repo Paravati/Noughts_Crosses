@@ -28,6 +28,7 @@ td {
     height: 100px;
     width: 100px;
     background: white;
+    padding: 5px;
 }
 #clickon{
 height: 50px;
@@ -53,11 +54,8 @@ fname[type=text]:focus { /* gdy najezdza sie na pole z nickiem to sie zmienia ob
     box-shadow: 0px 0px 48px 0px rgba(0, 0, 0, 0.75);
 }
 
-.player_dot {
-    height: 25px;
-    width: 25px;
-    background-color: #133553;
-    border-radius: 50%;
+.img{
+    position: center;
 }
 
 
