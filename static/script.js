@@ -54,27 +54,32 @@ function playerMove(el){
         }else{
             computerMove();
         }
+    }else if (listWithFields.length===0 && win===false){
+        console.log("IT'S A DRAW")
     }
 }
 
 function computerMove(){
-    var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
-    var imgComputer = document.createElement('img');
-    imgComputer.src = "static/dot.JPG";
-    imgComputer.width = 80;
-    imgComputer.height = 80;
-    document.getElementById(compField).appendChild(imgComputer)
-//    document.getElementById(compField).innerHTML = 'O';
-    removeFieldFromPossibleFields(compField, 'Computer');
-    console.log("computer move" + listWithFields);
-    win = checkIfWin();
-    if (win===true){
-        console.log("COMPUTER HAS WON-end of the game");
+    if (listWithFields.length===0 && win===false){
+        console.log("IT'S A DRAW")
     }else{
-        isPlayerMove=true;
-        start_the_game();
+        var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
+        var imgComputer = document.createElement('img');
+        imgComputer.src = "static/dot.JPG";
+        imgComputer.width = 80;
+        imgComputer.height = 80;
+        document.getElementById(compField).appendChild(imgComputer)
+    //    document.getElementById(compField).innerHTML = 'O';
+        removeFieldFromPossibleFields(compField, 'Computer');
+        console.log("computer move" + listWithFields);
+        win = checkIfWin();
+        if (win===true){
+            console.log("COMPUTER HAS WON-end of the game");
+        }else{
+            isPlayerMove=true;
+            start_the_game();
+        }
     }
-
 }
 
 function removeFieldFromPossibleFields(field_number, player){
