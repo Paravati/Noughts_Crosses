@@ -4,6 +4,7 @@ isPlayerMove = true
 listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
 computerMoves = []  // list with all moves done by computer
 playerMoves = []  // list with all moves done by player
+let win = false; // variable becomes true when user/computer wins
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
@@ -24,7 +25,6 @@ function main(){
 
 function start_the_game() {
     let cells = document.querySelectorAll('td');
-
     for (let field_index = 0; field_index < fields.length; field_index++)
         cells[field_index].addEventListener('click', () => {playerMove(cells[field_index].id)});
 }
@@ -48,8 +48,12 @@ function playerMove(el){
 //        console.log("Wykonano ruch")
         removeFieldFromPossibleFields(el, 'User');
         isPlayerMove=false;
-        checkIfWin();
-        computerMove();
+        win = checkIfWin();
+        if (win===true){
+            console.log("PLAYER HAS WON-end of the game");
+        }else{
+            computerMove();
+        }
     }
 }
 
@@ -63,21 +67,27 @@ function computerMove(){
 //    document.getElementById(compField).innerHTML = 'O';
     removeFieldFromPossibleFields(compField, 'Computer');
     console.log("computer move" + listWithFields);
-    isPlayerMove=true;
-    checkIfWin();
-    start_the_game();
+    win = checkIfWin();
+    if (win===true){
+        console.log("COMPUTER HAS WON-end of the game");
+    }else{
+        isPlayerMove=true;
+        start_the_game();
+    }
+
 }
 
 function removeFieldFromPossibleFields(field_number, player){
     let index = listWithFields.indexOf(field_number);
     if (player==='Computer'){
         computerMoves.push(field_number);
+        computerMoves.sort();
         console.log("computer: " + computerMoves)
     }else{
         playerMoves.push(field_number);
+        playerMoves.sort();
          console.log("user: " + playerMoves)
     }
-//    console.log(field_number + " " + index);
     if (index > -1)
         listWithFields.splice(index, 1);
 }
@@ -93,22 +103,23 @@ function checkIfWin()
     ["arr2", "arr5", "arr8"],
     ["arr0", "arr4", "arr8"],
     ["arr2", "arr4", "arr6"]];
-    computerMoves.sort();
-    playerMoves.sort();
 
-    for(var x=0; x<winningCombinations[0].length; x++){
-        console.log("BBBBBB: " + winningCombinations[x]);
-
+    for(var x=0; x<winningCombinations.length; x++){
+        console.log(winningCombinations[x]);
         if(computerMoves.includes(winningCombinations[x][0]) &&
          computerMoves.includes(winningCombinations[x][1]) &&
          computerMoves.includes(winningCombinations[x][2])){
             console.log("Computer wins");
+            return true;
         }else if(playerMoves.includes(winningCombinations[x][0]) &&
         playerMoves.includes(winningCombinations[x][1]) &&
         playerMoves.includes(winningCombinations[x][2])){
             console.log("Player wins");
+            return true;
         }
     }
+
+    return false;
 }
 
 
