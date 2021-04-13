@@ -23,7 +23,16 @@ function replay(){
 }
 
 function reload(){
-    location.reload();
+//    location.reload();
+    fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    isPlayerMove = true
+    listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
+    computerMoves = []  // list with all moves done by computer
+    playerMoves = []  // list with all moves done by player
+    let win = false; // variable becomes true when user/computer wins
+    let canReplay = false;
+    show_the_board();
+    start_the_game();
 }
 
 function main(){
