@@ -5,11 +5,26 @@ listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7"
 computerMoves = []  // list with all moves done by computer
 playerMoves = []  // list with all moves done by player
 let win = false; // variable becomes true when user/computer wins
+let canReplay = false;
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
   start_button.addEventListener('click', main);
 });
+
+function replay(){
+    let replay_button = document.getElementById('replay');
+    if (replay_button.style.display === "none") {
+    replay_button.style.display = "block";
+    }
+
+    replay_button.addEventListener('click', reload);
+//    location.reload();
+}
+
+function reload(){
+    location.reload();
+}
 
 function main(){
     player_name = document.getElementById('fname').value;
@@ -51,17 +66,23 @@ function playerMove(el){
         win = checkIfWin();
         if (win===true){
             console.log("PLAYER HAS WON-end of the game");
+            canReplay ===true;
+            replay();
         }else{
             computerMove();
         }
     }else if (listWithFields.length===0 && win===false){
         console.log("IT'S A DRAW")
+        canReplay===true;
+        replay();
     }
 }
 
 function computerMove(){
     if (listWithFields.length===0 && win===false){
         console.log("IT'S A DRAW")
+        canReplay===true;
+        replay();
     }else{
         var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
         var imgComputer = document.createElement('img');
@@ -75,6 +96,8 @@ function computerMove(){
         win = checkIfWin();
         if (win===true){
             console.log("COMPUTER HAS WON-end of the game");
+            canReplay===true;
+            replay();
         }else{
             isPlayerMove=true;
             start_the_game();

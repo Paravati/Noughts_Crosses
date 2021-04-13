@@ -11,7 +11,12 @@
 </head>
 <body>
     <div id="name_to_display"></div>
-    {% block content %}{% endblock %}
-    <script src="static/script.js"></script>
+    <div>
+        {% block content %}{% endblock %}
+        <script src="static/script.js"></script>
+    </div>
+    <div id="replay_button" >
+        <button id="replay" style="display: none;">REPLAY</button>
+    </div>
 </body>
 </html>
