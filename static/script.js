@@ -23,7 +23,6 @@ function replay(){
 }
 
 function reload(){
-//    location.reload();
     fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     isPlayerMove = true
     listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
@@ -68,8 +67,6 @@ function playerMove(el){
         img.width = 80;
         img.height = 80;
         document.getElementById(el).appendChild(img)
-//        document.getElementById(el).innerHTML = 'X';
-//        console.log("Wykonano ruch")
         removeFieldFromPossibleFields(el, 'User');
         isPlayerMove=false;
         win = checkIfWin();
@@ -165,7 +162,7 @@ function displayDate() {
   document.getElementById("demo").innerHTML = Date();
 }
 
-function show_the_board() {
+function show_the_board() {  // html text as string processed into JS
     let board_string = '';
     board_string+=`
     <table>

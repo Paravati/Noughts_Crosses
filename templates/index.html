@@ -5,17 +5,21 @@
 <main>
     <div class="container">
         <div>
-              <h1>Noughts & Crosses</h1>
-              <h2><i>Noughts & Crosses</i> - preferably called Tic Tac Toe game -  is a paper-and-pencil
-                  game for two players, X and O, who take turns marking the spaces in a 3×3 grid. <br>
-                  The player who succeeds in placing three of their marks in a diagonal, horizontal,
-                  or vertical row is the winner.</h2>
-              <form>
-                <label id="labelForFname" for="fname" >Insert your name:</label><br>
-                <input type="text" id="fname" name="fname" placeholder="1-10chars" onFocus="this.value=''"><br>
-              </form>
-<!--              <button id="clickon"><a href="{{url_for('play')}}">Play the game</a></button>-->
-              <button id="clickon">Play the game</button>
+            <h1>Noughts & Crosses</h1>
+            <h2><i>Noughts & Crosses</i> - preferably called Tic Tac Toe game -  is a paper-and-pencil
+              game for two players, X and O, who take turns marking the spaces in a 3×3 grid. <br>
+              The player who succeeds in placing three of their marks in a diagonal, horizontal,
+              or vertical row is the winner.</h2>
+            <div>
+                <form>
+                    <label id="labelForFname" for="fname" >Insert your name:</label><br>
+                    <input type="text" id="fname" name="fname" placeholder="1-10chars" onFocus="this.value=''"><br>
+                </form>
+
+                <label id="error_message"></label>
+                <button id="clickon">Play the game</button>
+            </div>
+
         </div>
     </div>
 </main>

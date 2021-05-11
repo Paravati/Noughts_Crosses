@@ -2,6 +2,7 @@ body {
     margin:0;
     padding:0;
     background:blue;
+    height: 100vh;
 }
 
 h1{
@@ -35,16 +36,17 @@ height: 50px;
 width: 200px;
 border: 5px solid black;
 text-size: 20px;
-position: absolute;
-left: 40%;
-top: 80%;
+position: auto;
+}
+
+#error_message{
+text-size: 30px;
+text-color: red;
 }
 
 #fname{
 font-size: 15px;
 position:absolute;
-left: 40%;
-top: 50%;
 
 }
 
@@ -62,8 +64,10 @@ fname[type=text]:focus { /* gdy najezdza sie na pole z nickiem to sie zmienia ob
 #labelForFname{
 font-size: 20px solid;
 position:absolute;
-left: 40%;
-top: 45%;
+}
+
+main{
+height: 100%;
 }
 
 
