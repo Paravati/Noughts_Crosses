@@ -74,6 +74,8 @@ fname[type=text]:focus { /* gdy najezdza sie na pole z nickiem to sie zmienia ob
 
 #labelForFname{
 font-size: 20px solid;
+height: 100px;
+padding: 80px 0px 0px 0px;
 display: block;
 margin-left: auto;
 margin-right: auto;
