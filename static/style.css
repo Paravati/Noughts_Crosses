@@ -40,17 +40,24 @@ height: 50px;
 width: 200px;
 border: 5px solid black;
 text-size: 20px;
-position: auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+
 }
 
 #error_message{
 text-size: 30px;
 text-color: red;
+display:block;
+margin: auto;
+text-align: center;
 }
 
 #fname{
 font-size: 15px;
-position:center;
+display: block;
+margin: auto;
 
 }
 
@@ -67,11 +74,13 @@ fname[type=text]:focus { /* gdy najezdza sie na pole z nickiem to sie zmienia ob
 
 #labelForFname{
 font-size: 20px solid;
-position:absolute;
+display: block;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 }
 
 main{
 height: 100vh;
 }
-
 
