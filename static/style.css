@@ -2,7 +2,7 @@ body {
     margin:0;
     padding:0;
     background:blue;
-    height: 100vh;
+    height: 70vh;
 }
 
 h1{
@@ -83,6 +83,6 @@ text-align: center;
 }
 
 main{
-height: 100vh;
+height: 90vh;
 }
 

@@ -74,13 +74,15 @@ function playerMove(el){
             console.log("PLAYER HAS WON-end of the game");
             canReplay ===true;
             replay();
+            alert("PLAYER HAS WON-end of the game");
         }else{
             computerMove();
         }
     }else if (listWithFields.length===0 && win===false){
-        console.log("IT'S A DRAW")
+        console.log("IT'S A DRAW");
         canReplay===true;
         replay();
+        alert("IT'S A DRAW");
     }
 }
 
@@ -89,6 +91,7 @@ function computerMove(){
         console.log("IT'S A DRAW")
         canReplay===true;
         replay();
+        alert("IT'S A DRAW");
     }else{
         var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
         var imgComputer = document.createElement('img');
@@ -104,6 +107,7 @@ function computerMove(){
             console.log("COMPUTER HAS WON-end of the game");
             canReplay===true;
             replay();
+            alert("COMPUTER HAS WON-end of the game");
         }else{
             isPlayerMove=true;
             start_the_game();
