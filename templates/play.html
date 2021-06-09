@@ -11,15 +11,15 @@
 </head>
 <body>
     <div id="name_to_display"></div>
-    <div>
+    <div id="main-content">
         {% block content %}{% endblock %}
         <script src="static/script.js"></script>
     </div>
     <div id="endgame_text">
-
     </div>
-    <div id="replay_button" >
+    <div id="replay_button" style="display: block">
         <button id="replay" style="display: none;">REPLAY</button>
+        <div id="endgame-message"></div>
     </div>
 </body>
 </html>

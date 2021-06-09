@@ -6,13 +6,25 @@ computerMoves = []  // list with all moves done by computer
 playerMoves = []  // list with all moves done by player
 let win = false; // variable becomes true when user/computer wins
 let canReplay = false;
+let winnerFlag = -1; //if 0-draw 1-player 2-computer
 
 document.addEventListener('DOMContentLoaded', () => {
   let start_button = document.getElementById('clickon');
   start_button.addEventListener('click', main);
 });
 
-function replay(){
+function replay(flag){
+    let winnerMessage = document.getElementById('endgame-message');
+    if (flag===0){
+    winnerMessage.innerHTML = `<span style="color: red;">DRAW</span> :)`;
+    }
+    else if (flag===1){
+    winnerMessage.innerHTML = `<span style="color: red;">Player has won</span> :)`;
+    }else if (flag===2){
+    winnerMessage.innerHTML = `<span style="color: red;">Computer has won</span> :)`;
+    }
+//    winnerMessage.innerHTML = `<span style="color: red;">Hello world</span> world`;
+
     let replay_button = document.getElementById('replay');
     if (replay_button.style.display === "none") {
     replay_button.style.display = "block";
@@ -25,6 +37,7 @@ function replay(){
 function reload(){
     fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     isPlayerMove = true
+    winnerFlag=-1;
     listWithFields = ["arr0", "arr1", "arr2", "arr3", "arr4", "arr5", "arr6", "arr7", "arr8"]
     computerMoves = []  // list with all moves done by computer
     playerMoves = []  // list with all moves done by player
@@ -72,25 +85,31 @@ function playerMove(el){
         win = checkIfWin();
         if (win===true){
             console.log("PLAYER HAS WON-end of the game");
+            winnerWindowAlert();
             canReplay ===true;
-            replay();
-            alert("PLAYER HAS WON-end of the game");
+            winnerFlag=1
+            replay(winnerFlag);
+//            alert("PLAYER HAS WON-end of the game");
         }else{
             computerMove();
         }
     }else if (listWithFields.length===0 && win===false){
         console.log("IT'S A DRAW");
+        winnerWindowAlert();
         canReplay===true;
-        replay();
+        winnerFlag=0;
+        replay(winnerFlag);
         alert("IT'S A DRAW");
     }
 }
 
 function computerMove(){
     if (listWithFields.length===0 && win===false){
-        console.log("IT'S A DRAW")
+        console.log("IT'S A DRAW");
+        winnerWindowAlert();
         canReplay===true;
-        replay();
+        winnerFlag=0;
+        replay(winnerFlag);
         alert("IT'S A DRAW");
     }else{
         var compField = listWithFields[Math.floor(Math.random() * listWithFields.length)];
@@ -98,16 +117,19 @@ function computerMove(){
         imgComputer.src = "static/dot.JPG";
         imgComputer.width = 80;
         imgComputer.height = 80;
-        document.getElementById(compField).appendChild(imgComputer)
+        document.getElementById(compField).appendChild(imgComputer);
     //    document.getElementById(compField).innerHTML = 'O';
         removeFieldFromPossibleFields(compField, 'Computer');
         console.log("computer move" + listWithFields);
         win = checkIfWin();
         if (win===true){
             console.log("COMPUTER HAS WON-end of the game");
+            winnerWindowAlert();
             canReplay===true;
-            replay();
+            winnerFlag=2;
+            replay(winnerFlag);
             alert("COMPUTER HAS WON-end of the game");
+
         }else{
             isPlayerMove=true;
             start_the_game();
@@ -130,6 +152,12 @@ function removeFieldFromPossibleFields(field_number, player){
         listWithFields.splice(index, 1);
 }
 
+function winnerWindowAlert()
+{
+    var elem = document.createElement('div');
+    elem.style.cssText = 'position:block; top:50%;width:200px;height:400px;opacity:0.3;background:#000';
+    document.body.appendChild(elem);
+}
 function checkIfWin()
 {
     const winningCombinations = [
