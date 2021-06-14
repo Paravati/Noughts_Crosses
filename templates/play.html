@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='popup-style.css')}}">
 </head>
 <body>
     <div id="name_to_display"></div>
@@ -21,5 +22,17 @@
         <button id="replay" style="display: none;">REPLAY</button>
         <div id="endgame-message"></div>
     </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>End of the game!!! &#128525	 </p>
+  </div>
+
+</div>
+
 </body>
 </html>

@@ -23,6 +23,23 @@ function replay(flag){
     }else if (flag===2){
     winnerMessage.innerHTML = `<span style="color: red;">Computer has won</span> :)`;
     }
+    var modal = document.getElementById("myModal");
+
+    modal.style.display = "block";
+
+    var btn = document.getElementById("myBtn");
+    // Get the <span> element that closes the popup
+    var span = document.getElementsByClassName("close")[0];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 //    winnerMessage.innerHTML = `<span style="color: red;">Hello world</span> world`;
 
     let replay_button = document.getElementById('replay');
@@ -221,3 +238,6 @@ function show_the_board() {  // html text as string processed into JS
     nick_to_display.innerHTML = `<span style="color: red;">${player_name}</span> is playing`;
 //    document.getElementById('container').innerHTML = board_string;   -> ten zapis uzywamy gdy zamiast klasy w html mamy id
 }
+
+
+
