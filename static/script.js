@@ -29,7 +29,7 @@ function replay(flag){
 
     var btn = document.getElementById("myBtn");
     // Get the <span> element that closes the popup
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close1")[0];
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
       modal.style.display = "none";
@@ -102,7 +102,6 @@ function playerMove(el){
         win = checkIfWin();
         if (win===true){
             console.log("PLAYER HAS WON-end of the game");
-            winnerWindowAlert();
             canReplay ===true;
             winnerFlag=1
             replay(winnerFlag);
@@ -112,7 +111,6 @@ function playerMove(el){
         }
     }else if (listWithFields.length===0 && win===false){
         console.log("IT'S A DRAW");
-        winnerWindowAlert();
         canReplay===true;
         winnerFlag=0;
         replay(winnerFlag);
@@ -123,7 +121,6 @@ function playerMove(el){
 function computerMove(){
     if (listWithFields.length===0 && win===false){
         console.log("IT'S A DRAW");
-        winnerWindowAlert();
         canReplay===true;
         winnerFlag=0;
         replay(winnerFlag);
@@ -141,7 +138,6 @@ function computerMove(){
         win = checkIfWin();
         if (win===true){
             console.log("COMPUTER HAS WON-end of the game");
-            winnerWindowAlert();
             canReplay===true;
             winnerFlag=2;
             replay(winnerFlag);
@@ -175,6 +171,7 @@ function winnerWindowAlert()
     elem.style.cssText = 'position:block; top:50%;width:200px;height:400px;opacity:0.3;background:#000';
     document.body.appendChild(elem);
 }
+
 function checkIfWin()
 {
     const winningCombinations = [
