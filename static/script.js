@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function replay(flag){
     let winnerMessage = document.getElementById('endgame-message');
     if (flag===0){
-    winnerMessage.innerHTML = `<span style="color: red;">DRAW</span> :)`;
+    winnerMessage.innerHTML = `<span class='endgame-message'>DRAW</span>`;
     }
     else if (flag===1){
-    winnerMessage.innerHTML = `<span style="color: red;">Player has won</span> :)`;
+    winnerMessage.innerHTML = `<span class='endgame-message'>Player has won</span>`;
     }else if (flag===2){
-    winnerMessage.innerHTML = `<span style="color: red;">Computer has won</span> :)`;
+    winnerMessage.innerHTML = `<span class='endgame-message'>Computer has won</span>`;
     }
     var modal = document.getElementById("myModal");
 
@@ -48,10 +48,13 @@ function replay(flag){
     }
 
     replay_button.addEventListener('click', reload);
+
 //    location.reload();
 }
 
 function reload(){
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none"
     fields = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     isPlayerMove = true
     winnerFlag=-1;
@@ -141,7 +144,7 @@ function computerMove(){
             canReplay===true;
             winnerFlag=2;
             replay(winnerFlag);
-            alert("COMPUTER HAS WON-end of the game");
+//            alert("COMPUTER HAS WON-end of the game");
 
         }else{
             isPlayerMove=true;
